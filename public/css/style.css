@@ -1,0 +1,167 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+input{
+	height: 35px;
+	padding: 0 .5rem;
+	border: 1px solid #797979;
+	border-radius: 3px;
+	outline: none;
+}
+
+input[type="text"]{
+	width: 275px;
+}
+
+button, .add-btn{
+	padding: .5rem .75rem;
+	border: 1px solid #797979;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
+}
+
+button[type="submit"]{
+	margin-top: 1rem;
+}
+
+i{
+	cursor: pointer;
+}
+
+.title{
+	margin: 1rem 0;
+	text-align: center;
+}
+
+.create-form, .video-edit-sec, .list-edit-sec{
+	width: 600px;
+	padding: 1rem;
+	margin: auto;
+	border: 1px solid #797979;
+	border-radius: 3px;
+}
+
+.row{
+	display: flex;
+	justify-content: space-between;
+}
+
+.video-active-sec, .edit-active-sec{
+	display: flex;
+	align-items: center;
+}
+
+.video-active-sec input, .edit-active-sec input{
+	margin: 0 1rem;
+	cursor: pointer;
+}
+
+.video-description-sec, .edit-description-sec{
+	margin-top: 1rem;
+}
+
+textarea{
+	width: 100%;
+	padding: .5rem;
+	outline: none;
+}
+
+.list-sec h2{
+	margin: 1rem 0;
+}
+.ind-list{
+	display: flex;
+	justify-content: space-between;
+}
+
+.add-btn{
+	width: 115px;
+	margin-top: .5rem;
+	text-align: center;
+}
+
+.submit-btn-sec{
+	width: 100%;
+	margin-top: 1rem;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.display-sec{
+	width: 600px;
+	margin: 4rem auto 2rem;
+}
+
+.display-box{
+	margin-bottom: 1.5rem;
+	padding: 1rem;
+	border: 1px solid #797979;
+	border-radius: 3px;
+}
+
+.video-display{
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #797979;
+}
+
+.list-display{
+	margin: 1rem 0;
+}
+
+.ind-list-display{
+	margin: .5rem 0;
+}
+
+.icons{
+	display: flex;
+	align-items: center;
+}
+
+.video-display .icons .fa-pen{
+	margin-left: 1.5rem;
+}
+
+.video-display .icons .fa-trash{
+	margin: 0 1.5rem;
+}
+
+.list-display .icons .fa-trash{
+	margin-left: 1.5rem;
+}
+
+.video-edit-sec, .list-edit-sec{
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.8);
+	display: none;
+	overflow: hidden;
+}
+
+.video-edit-sec form, .list-edit-sec form{
+	width: 600px;
+	padding: 2rem 1rem 1rem;
+	margin: 4rem auto 0;
+	position: relative;
+	background: white;
+	z-index: 10;
+}
+
+.cross-btn{
+	position: absolute;
+	top: .5rem;
+	right: 1rem;
+	font-size: 1.25rem;
+}

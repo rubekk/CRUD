@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CRUD</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<h1 class="title">CRUD app using Nodejs and mySQL</h1>
+
+
+	<!-- form section -->
+	<form class="create-form" autocomplete="off">
+		<div class="video-sec">
+			<h2>Video</h2>
+			<div class="row">
+				<div class="video-name-sec">
+					<label>Name</label><br>
+					<input class="video-name" type="text" placeholder="Enter a video name..." required/>
+				</div>
+				<div class="video-active-sec">
+					<label>Active</label>
+					<input class="video-active" type="radio">
+				</div>
+			</div>
+			<div class="video-description-sec">
+				<label>Description</label><br>
+				<textarea class="video-description"rows="6" required></textarea>
+			</div>
+		</div>
+		<div class="list-sec">
+			<h2>List/s</h2>
+			<div class="lists">
+				<div class="ind-list">
+					<div class="list-name-sec">
+						<label>Name</label><br>
+						<input class="list-name" type="text" placeholder="Enter a video list name..." required/>
+					</div>
+					<div class="list-link-sec">
+						<label>Link</label><br>
+						<input class="list-link" type="text" placeholder="Enter a link..." required/>
+					</div>
+				</div>
+			</div>
+			<div class="add-btn">Add more</div>
+		</div>
+		<div class="submit-btn-sec">
+			<button type="submit">Submit</button>
+		</div>
+	</form>
+
+
+	<!-- display and delete section -->
+	<div class="display-sec">
+		<% videoData.forEach(video=>{ %>
+			<div class="display-box">
+				<div class="video-display">
+					<div class="row">
+						<h2><%= video.name %></h2>
+						<div class="icons">
+							<div class="active-sec">
+								<span>Active:</span>
+								<% if(video.active) { %>
+									<i class="fa-solid fa-check"></i>
+								<% }%>
+								<% if(!video.active) { %>
+									<i class="fa-solid fa-times"></i>
+								<% }%>	
+							</div>
+							<i class="fa-solid fa-pen" type="video"></i>
+							<i class="fa-solid fa-trash" type="video"></i>
+							<i class="fa-solid fa-chevron-down"></i>
+						</div>
+					</div>
+					<p><%= video.description %></p>
+				</div>
+				<div class="list-display">
+					<% listData.forEach((list)=>{ %>
+						<% if(list.id==video.id){ %>
+							<div class="ind-list-display">
+								<div class="name-link">
+									<div class="row">
+										<h3><%= list.name %></h3>
+										<div class="icons">
+											<i class="fa-solid fa-pen" type="list"></i>
+											<i class="fa-solid fa-trash" type="list"></i>
+										</div>
+									</div>
+									<a href="https:/www.javascript.org" target="_blank">
+										<%= list.link %>
+									</a>
+								</div>
+							</div>
+						<% } %>
+					<% }) %>
+				</div>
+			</div>
+		<% }) %>
+	</div>
+
+
+	<!-- edit section -->
+	<!-- edit name, description, active -->
+	<div class="video-edit-sec">
+		<form method="PATCH" action="/update/">
+			<div class="row">
+				<div class="edit-name-sec">
+					<label>Name</label><br>
+					<input class="edit-name" type="text" name="name" placeholder="Enter a video name..." required/>
+				</div>
+				<div class="edit-active-sec">
+					<label>Active</label>
+					<input class="edit-active" type="radio" name="active">
+				</div>
+			</div>
+			<div class="edit-description-sec">
+				<label>Description</label><br>
+				<textarea class="edit-description" name="description" rows="6" required></textarea>
+			</div>
+			<div class="cross-btn">
+				<i class="fa-solid fa-times"></i>
+			</div>
+			<button class="confirm-btn" type="submit">Confirm</button>
+		</form>
+	</div>
+
+
+	<!-- edit name, link -->
+	<div class="list-edit-sec">
+		<form method="PATCH" action="/update/">
+			<div class="row">
+				<div class="edit-list-name-sec">
+					<label>Name</label><br>
+					<input class="edit-list-name" type="text" name="listName" placeholder="Enter a video list name..." required/>
+				</div>
+				<div class="edit-list-link-sec">
+					<label>Link</label><br>
+					<input class="edit-list-link" type="text" name="listLink" placeholder="Enter a link..." required/>
+				</div>
+			</div>
+			<div class="cross-btn">
+				<i class="fa-solid fa-times"></i>
+			</div>
+			<button class="confirm-btn" type="submit">Confirm</button>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="/script/script.js"></script>
+</body>
+</html>
